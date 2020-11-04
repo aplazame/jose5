@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="jose5",
-    version="0.1.3",
+    version="0.2.0",
     author="Aplazame",
     author_email="dev@aplazame.com",
     description="JSON Composer",
