@@ -87,7 +87,7 @@ The following file, `dev.json` ...
   "secrets": [
     {
       "name": "SECRET_KEY",
-      "valueFrom": "/app/${ENVIRONMENT}/SECRET_KEY"
+      "valueFrom": "/app/dev/SECRET_KEY"
     }
   ]
 }

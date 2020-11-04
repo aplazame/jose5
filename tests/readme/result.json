@@ -1,0 +1,27 @@
+{
+  "environment": [
+    {
+      "name": "ENVIRONMENT",
+      "value": "dev"
+    },
+    {
+      "name": "LOG_LEVEL",
+      "value": "DEBUG"
+    },
+    {
+      "name": "EXTRA_DEVELOPMENT_PARAM",
+      "value": 20
+    }
+  ],
+  "mergemap": {
+    "a": "base",
+    "b": "dev",
+    "c": "dev"
+  },
+  "secrets": [
+    {
+      "name": "SECRET_KEY",
+      "valueFrom": "/app/dev/SECRET_KEY"
+    }
+  ]
+}
