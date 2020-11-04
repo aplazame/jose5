@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="jose5",
-    version="0.1.0",
+    version="0.1.3",
     author="Aplazame",
     author_email="dev@aplazame.com",
     description="JSON Composer",
@@ -19,4 +19,7 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.6',
+    entry_points={
+        'console_scripts': ['jose5=jose5.command_line:main']
+    }
 )
