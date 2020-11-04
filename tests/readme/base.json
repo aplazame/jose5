@@ -1,0 +1,19 @@
+{
+    "__variables": {
+        "PARAM_BASE_PATH": "/app/${ENVIRONMENT}"
+    },
+    "environment": [
+        {
+            "name": "ENVIRONMENT",
+            "value": "${ENVIRONMENT}"
+        },
+        {
+            "name": "LOG_LEVEL",
+            "value": "INFO"
+        }
+    ],
+    "mergemap": {
+        "a": "base",
+        "b": "base"
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "__extends": "./base.json",
+    "__variables": {
+        "ENVIRONMENT": "dev"
+    },
+    "environment": [
+        {
+            "name": "LOG_LEVEL",
+            "value": "DEBUG"
+        },
+        {
+            "name": "EXTRA_DEVELOPMENT_PARAM",
+            "value": 20
+        }
+    ],
+    "secrets": [
+        {
+            "name": "SECRET_KEY",
+            "valueFrom": "${PARAM_BASE_PATH}/SECRET_KEY"
+        }
+    ],
+    "mergemap": {
+        "b": "dev",
+        "c": "dev"
+    }
+}
