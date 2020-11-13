@@ -1,7 +1,12 @@
 {
     "__extends": "./base.json",
     "__variables": {
-        "ENVIRONMENT": "dev"
+        "ENVIRONMENT": "dev",
+        "tfstate": {
+            "with": {
+                "stuff": 42
+            }
+        }
     },
     "environment": [
         {
@@ -11,6 +16,10 @@
         {
             "name": "EXTRA_DEVELOPMENT_PARAM",
             "value": 20
+        },
+        {
+            "name": "TFSTATE_STUFF",
+            "value": "${tfstate.with.stuff}"
         }
     ],
     "secrets": [

@@ -14,16 +14,35 @@ def valmap(M, map_fn):
         return map_fn(M)
 
 
-varre = re.compile('\$\{[A-Za-z0-9_]*\}')
+varre = re.compile('\$\{[A-Za-z0-9_\.]*\}')
 
 
 def varsubst(V, s):
     if isinstance(s, str):
         for match in varre.findall(s):
-            varname = match[2:-1]
+            varpath = match[2:-1]
 
-            if varname in V:
-                s = s.replace(match, V[varname])
+            vartoks = varpath.split('.')
+            Vptr = V
+
+            while vartoks:
+                vartok = vartoks.pop(0)
+
+                if isinstance(Vptr, dict) and vartok in Vptr:
+                    Vptr = Vptr[vartok]
+                else:
+                    vartoks.insert(0, vartok)
+                    break
+
+            if not vartoks:
+                if isinstance(Vptr, str):
+                    s = s.replace(match, Vptr)
+
+                if isinstance(Vptr, int) or isinstance(Vptr, float):
+                    if match == s:
+                        s = Vptr
+                    else:
+                        s = s.replace(match, str(Vptr))
 
     return s
 
