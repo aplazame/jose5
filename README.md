@@ -12,7 +12,12 @@ The following file, `dev.json` ...
 {
     "__extends": "./base.json",
     "__variables": {
-        "ENVIRONMENT": "dev"
+        "ENVIRONMENT": "dev",
+        "tfstate": {
+            "with": {
+                "stuff": 42
+            }
+        }
     },
     "environment": [
         {
@@ -22,6 +27,10 @@ The following file, `dev.json` ...
         {
             "name": "EXTRA_DEVELOPMENT_PARAM",
             "value": 20
+        },
+        {
+            "name": "TFSTATE_STUFF",
+            "value": "${tfstate.with.stuff}"
         }
     ],
     "secrets": [
@@ -77,6 +86,10 @@ The following file, `dev.json` ...
     {
       "name": "EXTRA_DEVELOPMENT_PARAM",
       "value": 20
+    },
+    {
+      "name": "TFSTATE_STUFF",
+      "value": 42
     }
   ],
   "mergemap": {
