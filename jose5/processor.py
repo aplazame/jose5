@@ -106,11 +106,13 @@ def process_templ(templ):
     prev_var_closure = {}
     var_closure = templ.get('__variables', {})
 
+    var_closure = merge(dict(os.environ), var_closure)
+
     while prev_var_closure != var_closure:
         prev_var_closure, var_closure = var_closure, valmap(
             var_closure, lambda val: varsubst(var_closure, val))
 
-    varvals = merge(dict(os.environ), var_closure)
+    varvals = var_closure
 
     td = valmap(templ, lambda val: varsubst(varvals, val))
 
